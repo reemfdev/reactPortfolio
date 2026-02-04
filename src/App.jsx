@@ -231,8 +231,13 @@ function Navbar() {
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-        <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-
+<a
+  href={`${import.meta.env.BASE_URL}CV.pdf`}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  CV
+</a>
       </div>
     </nav>
   );
