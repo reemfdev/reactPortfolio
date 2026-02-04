@@ -1,0 +1,424 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background: linear-gradient(
+    180deg,
+    #0d0d0d 0%,        /* غامق فوق */
+    #1a0633 20%,       /* بنفسجي داكن */
+    #9076dc 50%,       /* فاتح في النص */
+    #1a0633 80%,       /* يرجع داكن */
+    #0d0d0d 100%       /* غامق تحت */
+  );
+}
+
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  background: rgba(13, 13, 13, 0.7);
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+}
+
+.links a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: all 0.4s ease;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 12px;
+  opacity: 0.7;
+}
+
+.links a.active {
+  background: #000000 !important;
+  color: #d8b4fe !important;
+  opacity: 1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+}
+
+/* Sections General */
+.section {
+  min-height: 80vh;
+  padding: 60px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Hero Section */
+.hero-welcome {
+  font-size: clamp(18px, 4vw, 24px);
+  color: #c084fc;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-title {
+  margin-bottom: 15px;
+  font-weight: 900;
+  font-size: clamp(35px, 6vw, 45px);
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 3vw, 22px);
+  color: #ddd6fe;
+  margin-bottom: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-desc {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #b0b0b0;
+  max-width: 600px;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-content {
+  flex: 0 0 55%;   /* النص 55% */
+   max-width: 520px;
+}
+
+.hero-image {
+  flex: 0 0 45%;   /* الصورة 45% */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+   margin-left: auto; 
+}
+
+
+.hero-image img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+/* الجوال */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: right;
+  }
+
+  .hero-image {
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .hero-image img {
+    max-width: 250px;
+  }
+}
+
+
+.about-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 60px 40px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  cursor: default;
+}
+
+.about-card:hover {
+  transform: translateY(-10px); /* يرتفع للأعلى قليلاً */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* ظل عميق يعطي إيحاء بالبروز */
+  border: 1px solid rgba(192, 132, 252, 0.4); /* تفتيح الحدود بلون الموف */
+}
+
+.about-card h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #c084fc;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.about-card p {
+    line-height: 1.8;
+    font-size: 18px;
+    color: #e0e0e0;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  border-left: 5px solid  #0f0f15;
+  padding-left: 20px;
+  color: #c084fc;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 500;
+}
+
+/* Skills Section - Left Floating Card */
+.skills-left-section {
+  padding: 100px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* الإطار الكبير */
+.skills-left-card {
+  position: relative;
+  margin-left: -80px;        /* يخليه طالع من اليسار */
+  padding: 80px 100px;       /* ⬅⬅ المسافة من كل الجهات */
+  width: 75%;
+  border-radius: 0 120px 120px 0;
+  background: linear-gradient(
+    135deg,
+    #432889,
+    #3d2b67,
+    #7f60d9
+  );
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+}
+
+/* عنوان My Skills */
+.skills-left-title {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #c084fc;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skills-left-title span {
+  color: #0f0f15;
+  font-size: 36px;
+}
+
+/* شبكة الأيقونات */
+.skills-icons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 40px;
+}
+
+/* مربع المهارة */
+.skill-box {
+  background: rgba(30, 15, 60, 0.55);
+  backdrop-filter: blur(20px);
+  border-radius: 22px;
+  padding: 25px 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s ease;
+}
+
+.skill-box svg {
+  font-size: 30px;
+  color: #ede9fe;
+  margin-bottom: 12px;
+}
+
+.skill-box p {
+  font-size: 14px;
+  color: #f5f3ff;
+  letter-spacing: 1px;
+}
+
+/* Hover */
+.skill-box:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(76, 29, 149, 0.7);
+  box-shadow: 0 20px 40px rgba(76, 29, 149, 0.6);
+}
+
+/* للجوال */
+@media (max-width: 900px) {
+  .skills-left-card {
+    margin-left: 0;
+    width: 100%;
+    border-radius: 40px;
+    padding: 50px 30px;
+  }
+
+  .skills-left-title {
+    justify-content: center;
+  }
+}
+
+/* ===== Projects Section ===== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Project Card – Glass Style */
+.project-card-glass {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 15, 20, 0.85),
+    rgba(30, 20, 45, 0.85)
+  );
+  backdrop-filter: blur(25px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 35px 30px 35px 40px;
+  transition: all 0.4s ease;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
+}
+
+.project-card-glass::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 25px;
+  bottom: 25px;
+  width: 5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    #0f0f15,
+    #2e1065
+  );
+}
+
+.project-card-glass:hover {
+  transform: translateY(-10px);
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+.project-card-glass h3 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #f5f5f5;
+  line-height: 1.4;
+}
+
+
+/* Button */
+.project-toggle-btn {
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: rgba(15, 15, 25, 0.8);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  color: #e9d5ff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.project-toggle-btn:hover {
+  background: rgba(46, 16, 101, 0.9);
+}
+
+
+/* Description */
+.project-desc-glass {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #d1d5db;
+}
+
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Contact Section ===== */
+
+.contact-section {
+  text-align: center;
+}
+
+.contact-icons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(15, 15, 25, 0.8);
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #e9d5ff;
+  transition: all 0.4s ease;
+}
+
+.contact-icon:hover {
+  transform: translateY(-8px) scale(1.1);
+  background: rgba(76, 29, 149, 0.9);
+  box-shadow: 0 15px 35px rgba(192, 132, 252, 0.6);
+  color: #ffffff;
+}
+
+.site-footer {
+  width: 100%;
+  background: #ffffff;
+  padding: 18px 0;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer p {
+  color: #1a0633;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+}
